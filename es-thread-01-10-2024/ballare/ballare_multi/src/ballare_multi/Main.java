@@ -1,3 +1,4 @@
+//MADE BY Alessandro Pasqualetti 5°AI, Sara Rossi 5°CI, Diego Ticciati 5°AI
 package ballare_multi;
 import java.util.Scanner;
 public class Main {
