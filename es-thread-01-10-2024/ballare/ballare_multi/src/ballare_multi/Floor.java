@@ -6,9 +6,10 @@ public class Floor {
 	public int getPeople() {
 		return people;
 	}
-	//don't need synchronization as single threads do both operations and are
-	//locked into doing either one or the other, in order; we can never have
-	// enter->enter->exit or other "broken" sequences
+	//don't need synchronization as each thread can only enter a new floor
+	//if it is not currently on any floor or by first exiting the floor
+	//it is currently in; we can only assume this if the same thread calls both 
+	//methods, as happens here 
 	public void enter(int groupSize) {
 		people+=groupSize;
 	}

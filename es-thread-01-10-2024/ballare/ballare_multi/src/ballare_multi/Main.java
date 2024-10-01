@@ -7,6 +7,7 @@ public class Main {
 		int n=0;
 		int maxGroup=0;
 		int tempGroup; //helper for calculating random group size
+		final int nFloors=4; //could also be input by user and would work fine
 		//there needs to be at least one dancer/thread
 		do {
 			System.out.println("How many groups of dancers (threads) are there?");
@@ -21,8 +22,12 @@ public class Main {
 		DancerGroup[] Dancers = new DancerGroup[n];
 		Thread[] Threads = new Thread[n];
 		//make shared disco
-		Floor copacabana = new Floor();
-		//fill arrays
+		Floor[] copacabana = new Floor[nFloors];
+		//fill disco array
+		for(int i=0; i<nFloors; ++i) {
+			copacabana[i]=new Floor();
+		}
+		//fill dancer arrays
 		for(int i=0; i<n; ++i) {
 			tempGroup= (int)((double)maxGroup*Math.random());
 			tempGroup= tempGroup<1 ? 1 : tempGroup;
@@ -36,11 +41,15 @@ public class Main {
 		//until stopped:
 		while(true) {
 			try {
-				Thread.sleep(1000); //wait one second
+				Thread.sleep(500); //wait 500 ms
 			}catch(Exception e) {
 				System.err.println("Main thread interrupted!");
 			}
-			System.out.println("Number of people on the dancefloor: " + copacabana.getPeople());
+			System.out.println("=====================================");
+			for(int i=0; i<nFloors; ++i) {
+				System.out.println("People in floor "+ (i+1) +": " + copacabana[i].getPeople());
+			}
+			
 		}
 	}
 
