@@ -1,4 +1,4 @@
-package ballare_gruppi;
+package ballare_multi;
 import java.util.Scanner;
 public class Main {
 
@@ -21,12 +21,10 @@ public class Main {
 		DancerGroup[] Dancers = new DancerGroup[n];
 		Thread[] Threads = new Thread[n];
 		//make shared disco
-		Disco copacabana = new Disco();
+		Floor copacabana = new Floor();
 		//fill arrays
 		for(int i=0; i<n; ++i) {
-			//random doesnt ever give us 1.0, without adding 1 to cap we never
-			//get the max value
-			tempGroup= (int)((double)(maxGroup+1)*Math.random());
+			tempGroup= (int)((double)maxGroup*Math.random());
 			tempGroup= tempGroup<1 ? 1 : tempGroup;
 			Dancers[i] = new DancerGroup(copacabana,tempGroup);
 			Threads[i] = new Thread(Dancers[i]);
