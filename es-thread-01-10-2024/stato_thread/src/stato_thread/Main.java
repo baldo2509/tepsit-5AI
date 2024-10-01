@@ -45,7 +45,7 @@ public class Main {
 				String tString = vThread[i].getName() + 
 				" (" + String.format("%05d", vThread[i].getId()) + "): ";
 				if(vThread[i].isAlive()) { 
-					System.out.println(tString+ "arrivato a " + vContatore[i].val + ";");
+					System.out.println(tString+ "arrivato a " + vContatore[i].getVal() + ";");
 					//if we are here, at least one thread is alive
 					allThreadsDead=false;
 				}else{
