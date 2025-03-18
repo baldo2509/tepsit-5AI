@@ -1,0 +1,27 @@
+# Compiled code
+
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Os files
+
+.DS_Store
+.DS_Store?
+._*
+
+#archives
+*.zip
+*.rar
+*.7z
+
+#eclipse files
+
+.project
+.classpath
+.mvn/
+.settings/
+target/
